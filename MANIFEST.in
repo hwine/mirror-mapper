@@ -3,7 +3,6 @@ graft examples
 graft src
 graft tests
 
-include *.komodoproject
 include .bumpversion.cfg
 include .coveragerc
 include .isort.cfg
@@ -15,6 +14,8 @@ include CONTRIBUTING.rst
 include LICENSE
 include README.rst
 
-include tox.ini .travis.yml appveyor.yml
+include tox.ini .travis.yml
 
+prune */.ropeproject
+exclude src/mirrormapper/mirror-mapper.py
 global-exclude *.py[co] __pycache__
