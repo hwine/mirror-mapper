@@ -26,14 +26,14 @@ mirror-mapper
 
 Map upstream repo url to mirror location on git.mozilla.org
 
-* Free software: BSD license
+* Free software: Mozilla License
 
 Installation
 ============
 
 ::
 
-    pip install mirror-mapper
+    pip install <url_to_git_repo>
 
 Documentation
 =============
