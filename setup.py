@@ -18,7 +18,7 @@ def read(*names, **kwargs):
     ).read()
 
 setup(
-    name="mirror-mapper",
+    name="mirrormapper",
     version="0.1.0",
     license="MPL",
     description="Map upstream repo url to mirror location on git.mozilla.org",

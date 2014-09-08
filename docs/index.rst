@@ -1,5 +1,5 @@
 Welcome to mirror-mapper's documentation!
-======================================
+=========================================
 
 Contents:
 
@@ -13,10 +13,3 @@ Contents:
    contributing
    authors
    changelog
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

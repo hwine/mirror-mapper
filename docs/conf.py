@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import re
 import os
+
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
@@ -29,10 +30,12 @@ import sphinx_py3doc_enhanced_theme
 html_theme = "sphinx_py3doc_enhanced_theme"
 html_theme_path = [sphinx_py3doc_enhanced_theme.get_html_theme_path()]
 
+autodoc_default_flags = ['members', 'undoc-members', 'show-inheritance']
+
 pygments_style = 'trac'
 templates_path = ['.']
 html_use_smartypants = True
-html_last_updated_fmt = '%b %d, %Y'
+html_last_updated_fmt = '%Y-%m-%d %H:%M'
 html_split_index = True
 html_sidebars = {
    '**': ['searchbox.html', 'globaltoc.html', 'sourcelink.html'],
