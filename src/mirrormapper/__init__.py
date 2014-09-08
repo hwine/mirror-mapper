@@ -97,7 +97,7 @@ def parse_args(argv=()):
                         default=False, action='store_true')
     parser.add_argument("--verify", help='verify URL is accessible git repo',
                         action='store_true', default=False)
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     if args.verify or args.unique:
         parser.error("Not implemented yet")
     if args.prefix and not args.prefix.endswith('-'):
@@ -126,8 +126,10 @@ def main(argv=()):
             print "%s -> %s" % (u, mapped_url)
         except MirrorMapperException as e:
             logger.warning("{} on {}".format(e.message, u))
+    return 0
 
 
 if __name__ == '__main__':
+    import sys
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
-    main()
+    sys.exit(main(sys.argv))
