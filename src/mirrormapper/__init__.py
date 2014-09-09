@@ -2,6 +2,8 @@
     Given a git repo URL, see if we can map it to a mirror name
 """
 
+from __future__ import print_function
+
 __version__ = "0.1.0"
 
 import argparse
@@ -123,7 +125,7 @@ def main(argv=()):
             u = u[:-1] + '.git'
         try:
             mapped_url = get_mirror_name(u, args.prefix)
-            print "%s -> %s" % (u, mapped_url)
+            print("%s -> %s" % (u, mapped_url))
         except MirrorMapperException as e:
             logger.warning("{} on {}".format(e.message, u))
     return 0
