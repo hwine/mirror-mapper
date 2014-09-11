@@ -10,7 +10,10 @@ import argparse
 import collections
 import logging
 import re
-import urlparse
+try:
+    import urlparse
+except ImportError:
+    import urllib.parse as urlparse
 
 logger = logging.getLogger(__name__)
 

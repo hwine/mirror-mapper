@@ -4,7 +4,10 @@ import sys
 from mirrormapper import main
 
 from contextlib import contextmanager
-from StringIO import StringIO
+try:
+    from StringIO import StringIO
+except ImportError:
+    from io import StringIO
 
 # direct from http://stackoverflow.com/questions/18651705/argparse-unit-tests-suppress-the-help-message
 @contextmanager
