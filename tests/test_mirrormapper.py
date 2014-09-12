@@ -1,7 +1,7 @@
 import unittest
 import sys
 
-from mirrormapper import main
+from mirrormapper.__main__ import main
 
 from contextlib import contextmanager
 try:
@@ -36,14 +36,14 @@ class MainTestCase(unittest.TestCase):
         """ -h & --help work """
         with self.assertRaises(SystemExit) as cm:
             with capture_sys_output() as (stdout, stderr):
-                main(['-h'])
-        self.assertEqual(cm.exception.code, 0)
+                main(['prog', '-h'])
         self.assertEqual(stderr.getvalue(), '')
+        self.assertEqual(cm.exception.code, 0)
         self.assertNotEqual(len(stdout.getvalue()), 0)
 
         with self.assertRaises(SystemExit) as cm:
             with capture_sys_output() as (stdout, stderr):
-                main(['--help'])
+                main(['prog', '--help'])
         self.assertEqual(cm.exception.code, 0)
         self.assertEqual(stderr.getvalue(), '')
         self.assertNotEqual(len(stdout.getvalue()), 0)
