@@ -19,7 +19,7 @@ def read(*names, **kwargs):
 
 setup(
     name="mirrormapper",
-    version="0.1.1",
+    version="0.1.2",
     license="MPL",
     description="Map upstream repo url to mirror location on git.mozilla.org",
     long_description="%s\n%s" % (read("README.rst"), re.sub(":obj:`~?(.*?)`", r"``\1``", read("CHANGELOG.rst"))),
