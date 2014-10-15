@@ -27,8 +27,8 @@ known_mappings = [
              'git.mozilla.org/b2g/%(path)s'),
     URLMatch('github\.com/(?P<account>[^/]+)/(?P<path>.*)',
              'git.mozilla.org/external/%(account)s/%(path)s'),
-    URLMatch('sprdsource\.spreadtrum\.com:8085/b2g/android',
-             'git.mozilla.org/external/sprd-aosp/')
+    URLMatch('sprdsource\.spreadtrum\.com:8085/b2g/android/(?P<path>.*)',
+             'git.mozilla.org/external/sprd-aosp/%(path)s')
 ]
 
 
