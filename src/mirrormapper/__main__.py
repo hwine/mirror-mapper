@@ -22,11 +22,18 @@ def parse_args(argv=()):
                         default=False, action='store_true')
     parser.add_argument("--verify", help='verify URL is accessible git repo',
                         action='store_true', default=False)
+    parser.add_argument("--log", help='set logging level to value',
+                        default=None)
     args = parser.parse_args(argv)
     if args.verify or args.unique:
         parser.error("Not implemented yet")
     if args.prefix and not args.prefix.endswith('-'):
         parser.error("prefix must end with dash, if supplied")
+
+    # handle boilerplate options
+    if args.log is not None:
+        logger.setLevel(args.log)
+    del args.log
     return args
 
 
@@ -56,4 +63,4 @@ def main(argv=()):
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
-    sys.exit(main(sys.argv))
+    sys.exit(main(sys.argv[1:]))
