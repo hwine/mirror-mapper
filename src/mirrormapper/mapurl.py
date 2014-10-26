@@ -20,7 +20,8 @@ known_mappings = [
              'git.mozilla.org/releases/l10n/%(locale)s/gaia.git'),
     URLMatch('android\.git\.linaro\.org', 'git.mozilla.org/external/linaro'),
     URLMatch('android\.googlesource\.com', 'git.mozilla.org/external/aosp'),
-    URLMatch('codeaurora\.org', 'git.mozilla.org'),
+    URLMatch('codeaurora\.org/quic/la/(?P<path>.*)',
+             'git.mozilla.org/external/caf/%(path)s'),
     URLMatch('github\.com/mozilla/build-(?P<path>.*)',
              'git.mozilla.org/build/%(path)s'),
     URLMatch('github\.com/mozilla-b2g/(?P<path>.*)',
@@ -75,6 +76,7 @@ def get_mirror_name(url, prefix=None):
         for mapping in known_mappings:
             match = re.match(mapping.src_regexp, upstream)
             if match:
+                logger.debug("using mapping '%s'", mapping.src_regexp)
                 new_host = mapping.dest_format % match.groupdict()
                 if new_host != mapping.dest_format:
                     # a substitution was made, don't reuse old path
@@ -84,6 +86,8 @@ def get_mirror_name(url, prefix=None):
                 if not mapped_url.endswith('.git'):
                     mapped_url += '.git'
                 break
+            else:
+                logger.debug(" skip mapping '%s'", mapping.src_regexp)
         else:
             raise MirrorNewUpstream('Upstream host %s unknown, manual '
                                     'intervention required' % parts.hostname)
