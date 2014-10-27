@@ -55,7 +55,7 @@ class MainTestCase(unittest.TestCase):
 
 
 class TestExistingMappings(unittest.TestCase):
-    def no_match(self, desired, generated):
+    def _no_match(self, desired, generated):
         """ return true if they "match" after corner cases identified
         """
         git_prefix = 'git+ssh://git.m.o/'
@@ -90,7 +90,7 @@ class TestExistingMappings(unittest.TestCase):
                 upstream, junk, real_downstream = line.split()
                 try:
                     calc_downstream = get_mirror_name(upstream)
-                    if self.no_match(real_downstream, calc_downstream):
+                    if self._no_match(real_downstream, calc_downstream):
                         no_match_count += 1
                         everything_matches = False
                         error_list.append((upstream, real_downstream,
