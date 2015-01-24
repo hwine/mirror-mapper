@@ -48,6 +48,7 @@ def main(argv=None):
     Output the proper git.mozilla.org URL for the given upstream repository.
     """
 
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
     if argv is None:
         argv = sys.argv[1:]
     args = parse_args(argv)
@@ -64,5 +65,4 @@ def main(argv=None):
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
     sys.exit(main())
