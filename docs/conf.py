@@ -44,3 +44,5 @@ html_short_title = '%s-%s' % (project, version)
 html_theme_options = {
     'githuburl': 'https://github.com/hwine/mirror-mapper/'
 }
+# github fork links require authentication to avoid 404
+linkcheck_ignore = [r'''.*//github.com/.*/fork''']
