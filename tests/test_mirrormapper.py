@@ -77,7 +77,7 @@ class TestExistingMappings(unittest.TestCase):
         line_count = good_count = skipped_count = exception_count = \
             no_match_count = 0
         test_data_file = os.path.join(os.path.dirname(__file__),
-                                 'current_mappings.txt')
+                                      'current_mappings.txt')
         with open(test_data_file) as test_data:
             for line in test_data.readlines():
                 line_count += 1
@@ -94,7 +94,7 @@ class TestExistingMappings(unittest.TestCase):
                         no_match_count += 1
                         everything_matches = False
                         error_list.append((upstream, real_downstream,
-                                        calc_downstream))
+                                           calc_downstream))
                     else:
                         good_count += 1
                 except MirrorMapperException as e:
@@ -103,7 +103,7 @@ class TestExistingMappings(unittest.TestCase):
                     error_list.append((upstream, real_downstream, str(type(e))))
         if not everything_matches:
             for e in error_list:
-                print( ' '.join(map(str, e)))
+                print(' '.join(map(str, e)))
             text = """
                 %5d cases examined
                 %5d skipped as out of scope for mapper

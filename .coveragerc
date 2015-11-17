@@ -1,8 +1,8 @@
 [paths]
-source = src
+source = mirrormapper
 
 [run]
-source = src
+source = mirrormapper
 parallel = true
 
 [report]
