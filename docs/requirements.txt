@@ -1,4 +1,6 @@
 sphinx
 sphinxcontrib-napoleon
 sphinx-py3doc-enhanced-theme
+sphinx-confluence==0.0.2
+sphinxcontrib-actdiag==0.8.5
 -e .
